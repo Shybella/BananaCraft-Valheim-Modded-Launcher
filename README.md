@@ -14,6 +14,7 @@ BananaCraft Valheim Launcher is a modded Valheim Downloader/Installer and launch
 
 ***Planned***
 - Improve uninstaller
+- Select Texture Packs
 - Profiles for previous versions
 - Save auto-connect servers to dropdown box
 - Custom mod installer for your own modpacks
