@@ -1,6 +1,7 @@
 ﻿using Ionic.Zip;
 using System;
 using System.Data;
+using System.Deployment.Application;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -20,18 +21,20 @@ namespace BananaInstaller
         public Form1()
         {
             InitializeComponent();
+            this.Text = "BananaCraft Valheim Launcher " + Application.ProductVersion; 
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            textBox1.AppendText("----- BananaCraft Valheim Launcher ----- " + Environment.NewLine);
             _timer = new System.Threading.Timer(Callback, null, 2500, Timeout.Infinite);
-            textBox1.AppendText(" -- Bananacraft Valheim Mod Installer --" + Environment.NewLine);
             button1.Enabled = false;
             button1.Text = "LOADING";
             label1.Text = "Status: Idle";
             textBox2.Text = Properties.Settings.Default.Server;
             toolStripTextBox1.Text = Properties.Settings.Default.Arguments;
-            update_mods();
+            _ = update_mods();
         }
         private void not_installed()
         {
@@ -67,6 +70,7 @@ namespace BananaInstaller
                     textBox1.AppendText("-> Mods update pending" + Environment.NewLine);
                     Properties.Settings.Default.update = true;
                     Properties.Settings.Default.Save();
+                    
                 }
             }
         }
@@ -157,6 +161,8 @@ namespace BananaInstaller
                 try
                 {
                     File.Delete(Properties.Settings.Default.Path + @"\\Mods.zip");
+                    Directory.Delete(Properties.Settings.Default.Path + @"\\BepInEx\\plugins", true);
+                    Directory.CreateDirectory(Properties.Settings.Default.Path + @"\\BepInEx\\plugins");
                 }
                 catch(Exception ex)
                 {
@@ -174,11 +180,11 @@ namespace BananaInstaller
                 zip.ExtractProgress +=
                    new EventHandler<ExtractProgressEventArgs>(zip_ExtractProgress);
                 zip.ExtractAll(Properties.Settings.Default.Path, ExtractExistingFileAction.OverwriteSilently);
-                System.IO.DirectoryInfo di = new DirectoryInfo(Properties.Settings.Default.Path + "\\BepInEx\\plugins");
 
-                foreach (FileInfo file in di.GetFiles())
+                string path = Properties.Settings.Default.Path + "\\BepInEx\\plugins";
+                foreach (string f in Directory.EnumerateFiles(path, "*.dll", SearchOption.AllDirectories))
                 {
-                    textBox1.AppendText("-> Installed Mod: " + file.Name + Environment.NewLine);
+                    textBox1.AppendText(f.Remove(0, path.Length) + Environment.NewLine);
                 }
 
             }
@@ -244,19 +250,10 @@ namespace BananaInstaller
                 {
                     DialogResult dialogResult = MessageBox.Show("Do you wish to update your mods?", "BananaCraft Mods updater", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
-                    {
-                        System.IO.DirectoryInfo di = new DirectoryInfo(Properties.Settings.Default.Path + "\\BepInEx\\plugins");
-
-                        foreach (FileInfo file in di.GetFiles())
-                        {
-                            label1.Text = file.FullName;
-                            file.Delete();
-                        }
                         Properties.Settings.Default.update = false;
                         Properties.Settings.Default.Save();
                         Download();
-                        return;
-                    }
+                        return;                   
                 }
                 bool installed = Properties.Settings.Default.Installed;
                 if(installed == true)
@@ -312,6 +309,18 @@ namespace BananaInstaller
         private void supportToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Process.Start("https://discord.gg/FdU4CKM");
+        }
+
+        private void modsFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(Properties.Settings.Default.Path == "")
+            {
+                textBox1.AppendText("Path not found for Valheim!");
+            }
+            else
+            {
+                Process.Start(Properties.Settings.Default.Path);
+            }
         }
     }
 }

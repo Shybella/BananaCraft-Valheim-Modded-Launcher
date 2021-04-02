@@ -34,14 +34,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.uninstallToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.supportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.launchArgumentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.launchArgumentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.modsFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +73,7 @@
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modsFolderToolStripMenuItem,
             this.uninstallToolStripMenuItem1,
             this.supportToolStripMenuItem1,
             this.launchArgumentsToolStripMenuItem});
@@ -94,6 +96,20 @@
             this.supportToolStripMenuItem1.Size = new System.Drawing.Size(93, 29);
             this.supportToolStripMenuItem1.Text = "Support";
             this.supportToolStripMenuItem1.Click += new System.EventHandler(this.supportToolStripMenuItem1_Click);
+            // 
+            // launchArgumentsToolStripMenuItem
+            // 
+            this.launchArgumentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox1});
+            this.launchArgumentsToolStripMenuItem.Name = "launchArgumentsToolStripMenuItem";
+            this.launchArgumentsToolStripMenuItem.Size = new System.Drawing.Size(176, 29);
+            this.launchArgumentsToolStripMenuItem.Text = "Launch Arguments";
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 31);
             // 
             // pictureBox1
             // 
@@ -147,19 +163,12 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Ex - 127.0.0.1:2456";
             // 
-            // launchArgumentsToolStripMenuItem
+            // modsFolderToolStripMenuItem
             // 
-            this.launchArgumentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBox1});
-            this.launchArgumentsToolStripMenuItem.Name = "launchArgumentsToolStripMenuItem";
-            this.launchArgumentsToolStripMenuItem.Size = new System.Drawing.Size(176, 29);
-            this.launchArgumentsToolStripMenuItem.Text = "Launch Arguments";
-            // 
-            // toolStripTextBox1
-            // 
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 31);
+            this.modsFolderToolStripMenuItem.Name = "modsFolderToolStripMenuItem";
+            this.modsFolderToolStripMenuItem.Size = new System.Drawing.Size(129, 29);
+            this.modsFolderToolStripMenuItem.Text = "Mods Folder";
+            this.modsFolderToolStripMenuItem.Click += new System.EventHandler(this.modsFolderToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -202,6 +211,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem launchArgumentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem modsFolderToolStripMenuItem;
     }
 }
 
