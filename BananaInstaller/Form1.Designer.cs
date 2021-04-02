@@ -32,7 +32,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.uninstallToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.modsFolderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.uninstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.launchArgumentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
@@ -42,7 +44,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.modsFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -73,8 +74,7 @@
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modsFolderToolStripMenuItem,
-            this.uninstallToolStripMenuItem1,
+            this.toolStripMenuItem1,
             this.supportToolStripMenuItem1,
             this.launchArgumentsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -83,12 +83,28 @@
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // uninstallToolStripMenuItem1
+            // toolStripMenuItem1
             // 
-            this.uninstallToolStripMenuItem1.Name = "uninstallToolStripMenuItem1";
-            this.uninstallToolStripMenuItem1.Size = new System.Drawing.Size(95, 29);
-            this.uninstallToolStripMenuItem1.Text = "Uninstall";
-            this.uninstallToolStripMenuItem1.Click += new System.EventHandler(this.uninstallToolStripMenuItem1_Click);
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modsFolderToolStripMenuItem1,
+            this.uninstallToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(92, 29);
+            this.toolStripMenuItem1.Text = "Options";
+            // 
+            // modsFolderToolStripMenuItem1
+            // 
+            this.modsFolderToolStripMenuItem1.Name = "modsFolderToolStripMenuItem1";
+            this.modsFolderToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.modsFolderToolStripMenuItem1.Text = "Mods Folder";
+            this.modsFolderToolStripMenuItem1.Click += new System.EventHandler(this.modsFolderToolStripMenuItem1_Click);
+            // 
+            // uninstallToolStripMenuItem
+            // 
+            this.uninstallToolStripMenuItem.Name = "uninstallToolStripMenuItem";
+            this.uninstallToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.uninstallToolStripMenuItem.Text = "Uninstall";
+            this.uninstallToolStripMenuItem.Click += new System.EventHandler(this.uninstallToolStripMenuItem_Click);
             // 
             // supportToolStripMenuItem1
             // 
@@ -163,13 +179,6 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Ex - 127.0.0.1:2456";
             // 
-            // modsFolderToolStripMenuItem
-            // 
-            this.modsFolderToolStripMenuItem.Name = "modsFolderToolStripMenuItem";
-            this.modsFolderToolStripMenuItem.Size = new System.Drawing.Size(129, 29);
-            this.modsFolderToolStripMenuItem.Text = "Mods Folder";
-            this.modsFolderToolStripMenuItem.Click += new System.EventHandler(this.modsFolderToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -201,7 +210,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem uninstallToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem supportToolStripMenuItem1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ProgressBar progressBar1;
@@ -211,7 +219,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem launchArgumentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
-        private System.Windows.Forms.ToolStripMenuItem modsFolderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem modsFolderToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem uninstallToolStripMenuItem;
     }
 }
 

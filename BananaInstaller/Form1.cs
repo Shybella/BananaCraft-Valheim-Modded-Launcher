@@ -34,7 +34,16 @@ namespace BananaInstaller
             label1.Text = "Status: Idle";
             textBox2.Text = Properties.Settings.Default.Server;
             toolStripTextBox1.Text = Properties.Settings.Default.Arguments;
-            _ = update_mods();
+            if(Properties.Settings.Default.Installed == false)
+            {
+                textBox1.AppendText("-> Please launch valheim to begin install!" + Environment.NewLine);
+                return;
+            }
+            else
+            {
+                _ = update_mods();
+            }
+
         }
         private void not_installed()
         {
@@ -277,14 +286,31 @@ namespace BananaInstaller
                 textBox1.AppendText(ex.ToString());
             }
         }
-        private void uninstallToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void supportToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://discord.gg/FdU4CKM");
+        }
+
+        private void modsFolderToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.Path == "")
+            {
+                textBox1.AppendText("Path not found for Valheim!");
+            }
+            else
+            {
+                Process.Start(Properties.Settings.Default.Path);
+            }
+        }
+
+        private void uninstallToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string path = Properties.Settings.Default.Path;
             try
             {
+                CheckProcess(false);
                 label1.Text = "Status: Uninstalling";
                 textBox1.AppendText("-> Uninstalling" + Environment.NewLine);
-                CheckProcess(false);
                 Directory.Delete(path + "\\BepInEx", true);
                 Directory.Delete(path + "\\doorstop_libs", true);
                 Directory.Delete(path + "\\unstripped_corlib", true);
@@ -304,22 +330,6 @@ namespace BananaInstaller
                 Properties.Settings.Default.Installed = false;
                 Properties.Settings.Default.Path = "";
                 Properties.Settings.Default.Save();
-            }
-        }
-        private void supportToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://discord.gg/FdU4CKM");
-        }
-
-        private void modsFolderToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(Properties.Settings.Default.Path == "")
-            {
-                textBox1.AppendText("Path not found for Valheim!");
-            }
-            else
-            {
-                Process.Start(Properties.Settings.Default.Path);
             }
         }
     }
