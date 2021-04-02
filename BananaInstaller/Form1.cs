@@ -105,9 +105,9 @@ namespace BananaInstaller
                     string valheimpath = Path.GetDirectoryName(process.MainModule.FileName);
                     Properties.Settings.Default.Path = valheimpath;
                     Properties.Settings.Default.Save();
-                    label1.Text = "Status: Killing Process";
                     if(kill == true)
                     {
+                        label1.Text = "Status: Killing Process";
                         process.Kill();
                     }
                 }
