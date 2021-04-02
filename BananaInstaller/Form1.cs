@@ -316,6 +316,7 @@ namespace BananaInstaller
                 File.Delete(path + "\\winhttp.dll");
                 File.Delete(path + "\\doorstop_config.ini");
                 label1.Text = "Status: Uninstalled!";
+                textBox1.AppendText("-> Uninstalled!" + Environment.NewLine);
                 textBox1.AppendText("-> Ready for installation!" + Environment.NewLine);
                 button1.Text = "INSTALL";
                 Properties.Settings.Default.Installed = false;
@@ -326,6 +327,7 @@ namespace BananaInstaller
             catch (Exception ex)
             {
                 textBox1.AppendText("-> Mods are not installed!" + Environment.NewLine);
+                textBox1.AppendText(ex.ToString());
                 Properties.Settings.Default.Installed = false;
                 Properties.Settings.Default.Path = "";
                 Properties.Settings.Default.Save();

@@ -130,9 +130,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::BananaInstaller.Properties.Resources.viking_banana;
-            this.pictureBox1.Location = new System.Drawing.Point(460, 31);
+            this.pictureBox1.Location = new System.Drawing.Point(460, 35);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(158, 243);
+            this.pictureBox1.Size = new System.Drawing.Size(158, 239);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
