@@ -106,12 +106,11 @@ namespace BananaInstaller
                     string valheimpath = Path.GetDirectoryName(process.MainModule.FileName);
                     Properties.Settings.Default.Path = valheimpath;
                     Properties.Settings.Default.Save();
-                    label1.Text = "Killing Process";
+                    label1.Text = "Status: Killing Process";
                     if(kill == true)
                     {
-
+                        process.Kill();
                     }
-                    process.Kill();
                 }
             }
         }
@@ -197,7 +196,7 @@ namespace BananaInstaller
                 }
 
             }
-            textBox1.AppendText("-> Unzipping completed " + Environment.NewLine);
+            textBox1.AppendText("-> Unzipping Complete" + Environment.NewLine);
             label1.Text = "Status: Done..";
             Properties.Settings.Default.Installed = true;
             Properties.Settings.Default.Save();
@@ -308,7 +307,7 @@ namespace BananaInstaller
             string path = Properties.Settings.Default.Path;
             try
             {
-                CheckProcess(false);
+                CheckProcess(true);
                 label1.Text = "Status: Uninstalling";
                 textBox1.AppendText("-> Uninstalling" + Environment.NewLine);
                 Directory.Delete(path + "\\BepInEx", true);
