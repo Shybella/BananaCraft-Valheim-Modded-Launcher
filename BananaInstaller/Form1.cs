@@ -22,7 +22,6 @@ namespace BananaInstaller
         {
             InitializeComponent();
             this.Text = "BananaCraft Valheim Launcher " + Application.ProductVersion; 
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -294,7 +293,7 @@ namespace BananaInstaller
         {
             if (Properties.Settings.Default.Path == "")
             {
-                textBox1.AppendText("Path not found for Valheim!");
+                textBox1.AppendText("-> Path not found for Valheim!" + Environment.NewLine);
             }
             else
             {
